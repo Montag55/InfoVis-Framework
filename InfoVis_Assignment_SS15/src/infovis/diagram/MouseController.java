@@ -23,6 +23,11 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	 private Element selectedElement = new None();
 	 private double mouseOffsetX;
 	 private double mouseOffsetY;
+	 private double init_x;
+	 private double init_y;
+	 private double init_x_tr;
+	 private double init_y_tr;
+	 private boolean markerdragged;
 	 private boolean edgeDrawMode = false;
 	 private DrawingEdge drawingEdge = null;
 	 private boolean fisheyeMode;
@@ -30,7 +35,7 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	/*
 	 * Getter And Setter
 	 */
-	 public Element getSelectedElement(){
+	public Element getSelectedElement(){
 		 return selectedElement;
 	 }
     public Model getModel() {
@@ -52,9 +57,15 @@ public class MouseController implements MouseListener,MouseMotionListener {
 		int x = e.getX();
 		int y = e.getY();
 		double scale = view.getScale();
-		
-		
-		
+
+		if(view.markerContains(x, y)){
+			this.init_x = x;
+			this.init_y = y;
+			this.init_x_tr = view.getTranslateX();
+			this.init_y_tr = view.getTranslateY();
+			this.markerdragged = true;
+		}
+
 		if (e.getButton() == MouseEvent.BUTTON3){
 			/*
 			 * add grouped elements to the model
@@ -78,6 +89,8 @@ public class MouseController implements MouseListener,MouseMotionListener {
 			}
 			model.removeEdges(edgesToRemove);
 			model.removeElement(groupVertex);
+
+			this.markerdragged = false;
 			
 		}
 	}
@@ -163,7 +176,7 @@ public class MouseController implements MouseListener,MouseMotionListener {
 		}
 		view.repaint();
 	}
-	
+
 	public void mouseDragged(MouseEvent e) {
 		int x = e.getX();
 		int y = e.getY();
@@ -182,8 +195,15 @@ public class MouseController implements MouseListener,MouseMotionListener {
 		}else if(selectedElement != null){
 			selectedElement.updatePosition((e.getX()-mouseOffsetX)/scale, (e.getY()-mouseOffsetY) /scale);
 		}
+		if(view.markerContains(x, y)){
+			view.setTranslateX((x-mouseOffsetX));
+			view.setTranslateY((y-mouseOffsetY));
+			//view.setTranslateX(init_x_tr+(x-init_x));
+			//view.setTranslateY(init_y_tr+(y-init_y));
+		}
 		view.repaint();
 	}
+
 	public void mouseMoved(MouseEvent e) {
 	}
 	public boolean isDrawingEdges() {

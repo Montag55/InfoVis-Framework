@@ -18,10 +18,10 @@ public class View extends JPanel{
 	private Model model = null;
 	private Color color = Color.BLUE;
 	private double scale = 1;
-	private double translateX= 0;
-	private double translateY=0;
+	private double translateX = 0;
+	private double translateY = 0;
 	private Rectangle2D marker = new Rectangle2D.Double();
-	private Rectangle2D overviewRect = new Rectangle2D.Double();   
+	private Rectangle2D overviewRect = new Rectangle2D.Double();
 
 	public Model getModel() {
 		return model;
@@ -60,12 +60,22 @@ public class View extends JPanel{
 		g2D.translate(getWidth()*0.75, 0);
 		g2D.scale(0.25, 0.25);
 
-		Rectangle2D rect = new Rectangle2D.Double(0,0, getWidth(), getHeight());
+		this.overviewRect.setRect(0, 0, getWidth()-1, getHeight()-1);
 		g2D.setColor(Color.WHITE);
-		g2D.fill(rect);
+		g2D.fill(overviewRect);
 
-		g2D.draw(rect);
+		g2D.draw(overviewRect);
 		paintDiagram(g2D, 1);
+
+		g2D.scale(4, 4);
+		g2D.translate(-getWidth()*0.75, 0);
+
+		this.marker.setRect(getWidth() * 0.75 + getTranslateX(),
+							1 * getTranslateY(),
+							0.25 * getWidth()/getScale(),
+							0.25 * getHeight()/getScale());
+
+		g2D.draw(marker);
 	}
 	
 	public void setScale(double scale) {
@@ -106,7 +116,15 @@ public class View extends JPanel{
 	}
 
 	public boolean markerContains(int x, int y){
+		/*
+		Rectangle2D tmp_rec = new Rectangle2D.Double(marker.getMinX()+getScale()*0.25/getTranslateX(),
+													marker.getMinY()+getScale()*0.25/getTranslateY(),
+													(marker.getMaxX()+getTranslateX())*getScale()*0.25,
+													(marker.getMaxY()+getTranslateY())*getScale()*0.25);
+		System.out.println(tmp_rec.getMinX() + "; " + tmp_rec.getMinY() + "; " + tmp_rec.getMaxX() + "; " + tmp_rec.getMaxY());
+*/
 		return marker.contains(x, y);
+
 	}
 }
  
