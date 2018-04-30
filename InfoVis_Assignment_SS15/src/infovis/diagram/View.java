@@ -43,7 +43,9 @@ public class View extends JPanel{
 		g2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
 		g2D.clearRect(0, 0, getWidth(), getHeight());
 
+		g2D.translate(-getTranslateX()*getScale()*4, -getTranslateY()*getScale()*4);
 		paintDiagram(g2D, getScale());
+		g2D.translate(getTranslateX()*getScale()*4, getTranslateY()*getScale()*4);
 		paintOverview(g2D);
 	}
 

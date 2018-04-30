@@ -12,11 +12,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="View.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="View.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/InfoVis_Assignment_SS15/src/infovis/diagram/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
-              <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+            <state relative-caret-position="415">
+              <caret line="47" column="80" selection-start-line="47" selection-start-column="80" selection-end-line="47" selection-end-column="80" />
               <folding>
                 <element signature="e#1713#1714#0" expanded="true" />
                 <element signature="e#1738#1739#0" expanded="true" />
@@ -39,17 +39,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MouseController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MouseController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/InfoVis_Assignment_SS15/src/infovis/diagram/MouseController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="199" column="12" lean-forward="true" selection-start-line="199" selection-start-column="12" selection-end-line="199" selection-end-column="12" />
+            <state relative-caret-position="340">
+              <caret line="92" column="23" selection-start-line="92" selection-start-column="23" selection-end-line="92" selection-end-column="23" />
               <folding>
                 <element signature="method#mouseEntered#0;class#MouseController#0" />
                 <element signature="method#mouseExited#0;class#MouseController#0" />
-                <element signature="method#mousePressed#0;class#MouseController#0" />
-                <element signature="method#mouseReleased#0;class#MouseController#0" />
                 <element signature="method#mouseMoved#0;class#MouseController#0" />
+                <element signature="e#5856#5857#0" expanded="true" />
+                <element signature="e#5882#5883#0" expanded="true" />
+                <element signature="e#5935#5936#0" expanded="true" />
+                <element signature="e#5974#5975#0" expanded="true" />
                 <element signature="method#setFisheyeMode#0;class#MouseController#0" />
               </folding>
             </state>
@@ -70,6 +72,7 @@
       <find>selectedElem</find>
       <find>getElementContainingPosition</find>
       <find>updateMarker</find>
+      <find>off</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -77,8 +80,8 @@
       <list>
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/InfoVis_Assignment_SS15/src/infovis/diagram/Model.java" />
-        <option value="$PROJECT_DIR$/InfoVis_Assignment_SS15/src/infovis/diagram/MouseController.java" />
         <option value="$PROJECT_DIR$/InfoVis_Assignment_SS15/src/infovis/diagram/View.java" />
+        <option value="$PROJECT_DIR$/InfoVis_Assignment_SS15/src/infovis/diagram/MouseController.java" />
       </list>
     </option>
   </component>
@@ -224,7 +227,7 @@
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Version Control" order="2" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.19370079" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.19370079" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Designer" order="0" />
@@ -250,7 +253,7 @@
       <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.19370079" />
       <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="6" weight="0.18077803" />
+      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.18077803" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Theme Preview" order="2" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -324,25 +327,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/InfoVis_Assignment_SS15/src/infovis/diagram/MouseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="199" column="12" lean-forward="true" selection-start-line="199" selection-start-column="12" selection-end-line="199" selection-end-column="12" />
-          <folding>
-            <element signature="method#mouseEntered#0;class#MouseController#0" />
-            <element signature="method#mouseExited#0;class#MouseController#0" />
-            <element signature="method#mousePressed#0;class#MouseController#0" />
-            <element signature="method#mouseReleased#0;class#MouseController#0" />
-            <element signature="method#mouseMoved#0;class#MouseController#0" />
-            <element signature="method#setFisheyeMode#0;class#MouseController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/InfoVis_Assignment_SS15/src/infovis/diagram/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
+        <state relative-caret-position="415">
+          <caret line="47" column="80" selection-start-line="47" selection-start-column="80" selection-end-line="47" selection-end-column="80" />
           <folding>
             <element signature="e#1713#1714#0" expanded="true" />
             <element signature="e#1738#1739#0" expanded="true" />
@@ -360,6 +348,23 @@
             <element signature="e#2226#2227#0" expanded="true" />
             <element signature="e#2260#2261#0" expanded="true" />
             <element signature="e#2280#2281#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InfoVis_Assignment_SS15/src/infovis/diagram/MouseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="92" column="23" selection-start-line="92" selection-start-column="23" selection-end-line="92" selection-end-column="23" />
+          <folding>
+            <element signature="method#mouseEntered#0;class#MouseController#0" />
+            <element signature="method#mouseExited#0;class#MouseController#0" />
+            <element signature="method#mouseMoved#0;class#MouseController#0" />
+            <element signature="e#5856#5857#0" expanded="true" />
+            <element signature="e#5882#5883#0" expanded="true" />
+            <element signature="e#5935#5936#0" expanded="true" />
+            <element signature="e#5974#5975#0" expanded="true" />
+            <element signature="method#setFisheyeMode#0;class#MouseController#0" />
           </folding>
         </state>
       </provider>

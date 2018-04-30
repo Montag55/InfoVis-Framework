@@ -23,14 +23,12 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	 private Element selectedElement = new None();
 	 private double mouseOffsetX;
 	 private double mouseOffsetY;
-	 private double init_x;
-	 private double init_y;
-	 private double init_x_tr;
-	 private double init_y_tr;
-	 private boolean markerdragged;
+	 private double init_x=0;
+	 private double init_y=0;
 	 private boolean edgeDrawMode = false;
 	 private DrawingEdge drawingEdge = null;
 	 private boolean fisheyeMode;
+	 boolean grabbermaber=false;
 	 private GroupingRectangle groupRectangle;
 	/*
 	 * Getter And Setter
@@ -54,17 +52,10 @@ public class MouseController implements MouseListener,MouseMotionListener {
      * Implements MouseListener
      */
 	public void mouseClicked(MouseEvent e) {
+
 		int x = e.getX();
 		int y = e.getY();
 		double scale = view.getScale();
-
-		if(view.markerContains(x, y)){
-			this.init_x = x;
-			this.init_y = y;
-			this.init_x_tr = view.getTranslateX();
-			this.init_y_tr = view.getTranslateY();
-			this.markerdragged = true;
-		}
 
 		if (e.getButton() == MouseEvent.BUTTON3){
 			/*
@@ -89,9 +80,6 @@ public class MouseController implements MouseListener,MouseMotionListener {
 			}
 			model.removeEdges(edgesToRemove);
 			model.removeElement(groupVertex);
-
-			this.markerdragged = false;
-			
 		}
 	}
 
@@ -101,10 +89,12 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	public void mouseExited(MouseEvent arg0) {
 	}
 	public void mousePressed(MouseEvent e) {
+
+		grabbermaber = true;
 		int x = e.getX();
 		int y = e.getY();
 		double scale = view.getScale();
-		
+
 	   
 	   if (edgeDrawMode){
 			drawingEdge = new DrawingEdge((Vertex)getElementContainingPosition(x/scale,y/scale));
@@ -174,6 +164,7 @@ public class MouseController implements MouseListener,MouseMotionListener {
 			model.removeElement(groupRectangle);
 			groupRectangle = null;
 		}
+
 		view.repaint();
 	}
 
@@ -181,9 +172,19 @@ public class MouseController implements MouseListener,MouseMotionListener {
 		int x = e.getX();
 		int y = e.getY();
 		double scale = view.getScale();
-		/*
-		 * Aufgabe 1.2
-		 */
+
+		// Aufgabe 1.2
+		if(grabbermaber==true){
+			grabbermaber=false;
+			init_x=view.getTranslateX();
+			init_y=view.getTranslateY();
+		}else{
+			if(view.markerContains(x, y)){
+				view.setTranslateX((init_x+x-mouseOffsetX));
+				view.setTranslateY((init_y+y-mouseOffsetY));
+			}
+		}
+
 		if (fisheyeMode){
 			/*
 			 * handle fisheye mode interactions
@@ -195,12 +196,7 @@ public class MouseController implements MouseListener,MouseMotionListener {
 		}else if(selectedElement != null){
 			selectedElement.updatePosition((e.getX()-mouseOffsetX)/scale, (e.getY()-mouseOffsetY) /scale);
 		}
-		if(view.markerContains(x, y)){
-			view.setTranslateX((x-mouseOffsetX));
-			view.setTranslateY((y-mouseOffsetY));
-			//view.setTranslateX(init_x_tr+(x-init_x));
-			//view.setTranslateY(init_y_tr+(y-init_y));
-		}
+
 		view.repaint();
 	}
 
