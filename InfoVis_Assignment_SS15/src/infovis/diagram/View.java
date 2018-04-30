@@ -38,27 +38,34 @@ public class View extends JPanel{
 
 	
 	public void paint(Graphics g) {
-		
+
 		Graphics2D g2D = (Graphics2D) g;
 		g2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
 		g2D.clearRect(0, 0, getWidth(), getHeight());
 
-		paintDiagram(g2D);
+		paintDiagram(g2D, getScale());
 		paintOverview(g2D);
 	}
 
-	private void paintDiagram(Graphics2D g2D){
-		g2D.scale(getScale(), getScale());
+	private void paintDiagram(Graphics2D g2D, double scale){
+		g2D.scale(scale, scale);
 		for (Element element: model.getElements()) {
 			element.paint(g2D);
 		}
+		g2D.scale(1/scale, 1/scale);
 	}
 
 	private void paintOverview(Graphics2D g2D){
-		//g2D.scale(1/getScale(), 1/getScale());
+
 		g2D.translate(getWidth()*0.75, 0);
 		g2D.scale(0.25, 0.25);
-		paintDiagram(g2D);
+
+		Rectangle2D rect = new Rectangle2D.Double(0,0, getWidth(), getHeight());
+		g2D.setColor(Color.WHITE);
+		g2D.fill(rect);
+
+		g2D.draw(rect);
+		paintDiagram(g2D, 1);
 	}
 	
 	public void setScale(double scale) {
