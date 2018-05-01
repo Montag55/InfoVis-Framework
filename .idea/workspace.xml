@@ -12,38 +12,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="View.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/InfoVis_Assignment_SS15/src/infovis/diagram/View.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="65" column="8" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
-              <folding>
-                <element signature="method#paint#0;class#View#0" />
-                <element signature="method#paintDiagram#0;class#View#0" />
-                <element signature="method#updateTranslation#0;class#View#0" />
-                <element signature="method#updateMarker#0;class#View#0" />
-                <element signature="e#2563#2564#0" expanded="true" />
-                <element signature="e#2573#2574#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MouseController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MouseController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/InfoVis_Assignment_SS15/src/infovis/diagram/MouseController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="88" column="27" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
+            <state relative-caret-position="285">
+              <caret line="184" column="44" selection-start-line="184" selection-start-column="44" selection-end-line="184" selection-end-column="44" />
               <folding>
                 <element signature="method#mouseClicked#0;class#MouseController#0" />
                 <element signature="method#mouseEntered#0;class#MouseController#0" />
                 <element signature="method#mouseExited#0;class#MouseController#0" />
                 <element signature="method#mousePressed#0;class#MouseController#0" />
                 <element signature="method#mouseReleased#0;class#MouseController#0" />
-                <element signature="method#mouseDragged#0;class#MouseController#0" />
                 <element signature="method#mouseMoved#0;class#MouseController#0" />
+                <element signature="e#6200#6201#0" expanded="true" />
+                <element signature="e#6226#6227#0" expanded="true" />
+                <element signature="e#6279#6280#0" expanded="true" />
+                <element signature="e#6318#6319#0" expanded="true" />
                 <element signature="method#setFisheyeMode#0;class#MouseController#0" />
                 <element signature="method#getElementContainingPosition#0;class#MouseController#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="View.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/InfoVis_Assignment_SS15/src/infovis/diagram/View.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="59" column="46" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
+              <folding>
+                <element signature="method#paint#0;class#View#0" />
+                <element signature="method#paintDiagram#0;class#View#0" />
+                <element signature="method#paintOverview#0;class#View#0" />
+                <element signature="method#updateTranslation#0;class#View#0" />
+                <element signature="method#updateMarker#0;class#View#0" />
+                <element signature="method#markerContains#0;class#View#0" />
               </folding>
             </state>
           </provider>
@@ -74,8 +77,8 @@
       <list>
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/InfoVis_Assignment_SS15/src/infovis/diagram/Model.java" />
-        <option value="$PROJECT_DIR$/InfoVis_Assignment_SS15/src/infovis/diagram/MouseController.java" />
         <option value="$PROJECT_DIR$/InfoVis_Assignment_SS15/src/infovis/diagram/View.java" />
+        <option value="$PROJECT_DIR$/InfoVis_Assignment_SS15/src/infovis/diagram/MouseController.java" />
       </list>
     </option>
   </component>
@@ -250,32 +253,32 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="bottom" id="Find" order="5" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
-      <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.19370079" />
-      <window_info anchor="right" id="Theme Preview" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.18077803" />
-      <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.19370079" />
       <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.18077803" />
+      <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Theme Preview" order="2" />
       <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="bottom" id="Version Control" order="2" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="4" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
-      <window_info anchor="bottom" id="Find" order="5" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
+      <window_info id="Learn" order="2" />
       <window_info anchor="right" id="Palette&#9;" order="1" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
-      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="2" show_stripe_button="false" />
       <window_info id="Capture Tool" order="3" />
-      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Messages" order="3" weight="0.15433072" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info id="Learn" order="2" />
+      <window_info id="Favorites" order="4" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -294,10 +297,10 @@
           <folding>
             <element signature="method#paint#0;class#View#0" />
             <element signature="method#paintDiagram#0;class#View#0" />
+            <element signature="method#paintOverview#0;class#View#0" />
             <element signature="method#updateTranslation#0;class#View#0" />
             <element signature="method#updateMarker#0;class#View#0" />
-            <element signature="e#2563#2564#0" expanded="true" />
-            <element signature="e#2573#2574#0" expanded="true" />
+            <element signature="method#markerContains#0;class#View#0" />
           </folding>
         </state>
       </provider>
@@ -319,8 +322,11 @@
             <element signature="method#mouseExited#0;class#MouseController#0" />
             <element signature="method#mousePressed#0;class#MouseController#0" />
             <element signature="method#mouseReleased#0;class#MouseController#0" />
-            <element signature="method#mouseDragged#0;class#MouseController#0" />
             <element signature="method#mouseMoved#0;class#MouseController#0" />
+            <element signature="e#6200#6201#0" expanded="true" />
+            <element signature="e#6226#6227#0" expanded="true" />
+            <element signature="e#6279#6280#0" expanded="true" />
+            <element signature="e#6318#6319#0" expanded="true" />
             <element signature="method#setFisheyeMode#0;class#MouseController#0" />
             <element signature="method#getElementContainingPosition#0;class#MouseController#0" />
           </folding>
@@ -421,35 +427,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/InfoVis_Assignment_SS15/src/infovis/diagram/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="59" column="46" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
+          <folding>
+            <element signature="method#paint#0;class#View#0" />
+            <element signature="method#paintDiagram#0;class#View#0" />
+            <element signature="method#paintOverview#0;class#View#0" />
+            <element signature="method#updateTranslation#0;class#View#0" />
+            <element signature="method#updateMarker#0;class#View#0" />
+            <element signature="method#markerContains#0;class#View#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/InfoVis_Assignment_SS15/src/infovis/diagram/MouseController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="88" column="27" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
+        <state relative-caret-position="285">
+          <caret line="184" column="44" selection-start-line="184" selection-start-column="44" selection-end-line="184" selection-end-column="44" />
           <folding>
             <element signature="method#mouseClicked#0;class#MouseController#0" />
             <element signature="method#mouseEntered#0;class#MouseController#0" />
             <element signature="method#mouseExited#0;class#MouseController#0" />
             <element signature="method#mousePressed#0;class#MouseController#0" />
             <element signature="method#mouseReleased#0;class#MouseController#0" />
-            <element signature="method#mouseDragged#0;class#MouseController#0" />
             <element signature="method#mouseMoved#0;class#MouseController#0" />
+            <element signature="e#6200#6201#0" expanded="true" />
+            <element signature="e#6226#6227#0" expanded="true" />
+            <element signature="e#6279#6280#0" expanded="true" />
+            <element signature="e#6318#6319#0" expanded="true" />
             <element signature="method#setFisheyeMode#0;class#MouseController#0" />
             <element signature="method#getElementContainingPosition#0;class#MouseController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/InfoVis_Assignment_SS15/src/infovis/diagram/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="65" column="8" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
-          <folding>
-            <element signature="method#paint#0;class#View#0" />
-            <element signature="method#paintDiagram#0;class#View#0" />
-            <element signature="method#updateTranslation#0;class#View#0" />
-            <element signature="method#updateMarker#0;class#View#0" />
-            <element signature="e#2563#2564#0" expanded="true" />
-            <element signature="e#2573#2574#0" expanded="true" />
           </folding>
         </state>
       </provider>

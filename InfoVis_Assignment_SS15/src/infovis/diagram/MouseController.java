@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -171,13 +172,22 @@ public class MouseController implements MouseListener,MouseMotionListener {
 		double scale = view.getScale();
 
 		// Aufgabe 1.2
-		if(grabbermaber==true){
-			grabbermaber=false;
-			init_x=view.getTranslateX();
-			init_y=view.getTranslateY();
+		if(grabbermaber == true){
+			grabbermaber = false;
+			init_x = view.getTranslateX();
+			init_y = view.getTranslateY();
 		} else{
 			if(view.markerContains(x, y)){
-				view.updateTranslation(init_x + x - mouseOffsetX, init_y + y - mouseOffsetY);
+
+				Rectangle2D tmp = new Rectangle2D.Double();
+				tmp.setRect(view.getWidth() * 0.75 + init_x + x - mouseOffsetX,
+							init_y + y - mouseOffsetY,
+							0.25 * view.getWidth() / view.getScale(),
+							0.25 * view.getHeight() / view.getScale());
+
+				if(view.overviewContains(tmp)){
+					view.updateTranslation(init_x + x - mouseOffsetX, init_y + y - mouseOffsetY);
+				}
 			}
 		}
 

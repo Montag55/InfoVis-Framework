@@ -63,14 +63,10 @@ public class View extends JPanel{
 		g2D.setColor(Color.WHITE);
 		g2D.fill(overviewRect);
 		g2D.draw(overviewRect);
-		
+
 		g2D.translate(getWidth()*0.75, 0);
 		g2D.scale(0.25, 0.25);
-
-		//this.overviewRect.setRect(0, 0, getWidth()-1, getHeight()-1);
-
 		paintDiagram(g2D, 1);
-
 		g2D.scale(4, 4);
 		g2D.translate(-getWidth()*0.75, 0);
 
@@ -116,12 +112,16 @@ public class View extends JPanel{
 	}
 
 	public Rectangle2D getMarker(){
-		return marker;
+		return this.marker;
 	}
 
 	public boolean markerContains(int x, int y){
-		return marker.contains(x, y);
+		return this.marker.contains(x, y);
 
+	}
+
+	public boolean overviewContains(Rectangle2D rect){
+		return this.overviewRect.contains(rect);
 	}
 }
  
