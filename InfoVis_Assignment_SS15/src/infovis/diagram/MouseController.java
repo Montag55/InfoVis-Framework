@@ -82,10 +82,8 @@ public class MouseController implements MouseListener,MouseMotionListener {
 			model.removeElement(groupVertex);
 		}
 	}
-
 	public void mouseEntered(MouseEvent arg0) {
 	}
-
 	public void mouseExited(MouseEvent arg0) {
 	}
 	public void mousePressed(MouseEvent e) {
@@ -167,7 +165,6 @@ public class MouseController implements MouseListener,MouseMotionListener {
 
 		view.repaint();
 	}
-
 	public void mouseDragged(MouseEvent e) {
 		int x = e.getX();
 		int y = e.getY();
@@ -178,10 +175,9 @@ public class MouseController implements MouseListener,MouseMotionListener {
 			grabbermaber=false;
 			init_x=view.getTranslateX();
 			init_y=view.getTranslateY();
-		}else{
+		} else{
 			if(view.markerContains(x, y)){
-				view.setTranslateX((init_x+x-mouseOffsetX));
-				view.setTranslateY((init_y+y-mouseOffsetY));
+				view.updateTranslation(init_x + x - mouseOffsetX, init_y + y - mouseOffsetY);
 			}
 		}
 
@@ -193,13 +189,12 @@ public class MouseController implements MouseListener,MouseMotionListener {
 		} else if (edgeDrawMode){
 			drawingEdge.setX(e.getX());
 			drawingEdge.setY(e.getY());
-		}else if(selectedElement != null){
+		} else if(selectedElement != null){
 			selectedElement.updatePosition((e.getX()-mouseOffsetX)/scale, (e.getY()-mouseOffsetY) /scale);
 		}
 
 		view.repaint();
 	}
-
 	public void mouseMoved(MouseEvent e) {
 	}
 	public boolean isDrawingEdges() {
@@ -208,7 +203,6 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	public void setDrawingEdges(boolean drawingEdges) {
 		this.edgeDrawMode = drawingEdges;
 	}
-	
 	public void setFisheyeMode(boolean b) {
 		fisheyeMode = b;
 		if (b){
@@ -228,6 +222,8 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	 * private Methods
 	 */
 	private Element getElementContainingPosition(double x,double y){
+		x += view.getTranslateX()*4;
+		y += view.getTranslateY()*4;
 		Element currentElement = new None();
 		Iterator<Element> iter = getModel().iterator();
 		while (iter.hasNext()) {
