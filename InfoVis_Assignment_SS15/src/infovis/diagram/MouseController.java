@@ -178,16 +178,16 @@ public class MouseController implements MouseListener,MouseMotionListener {
 			init_y = view.getTranslateY();
 		} else{
 			if(view.markerContains(x, y)){
-
+				/*
 				Rectangle2D tmp = new Rectangle2D.Double();
 				tmp.setRect(view.getWidth() * 0.75 + init_x + x - mouseOffsetX,
 							init_y + y - mouseOffsetY,
 							0.25 * view.getWidth() / view.getScale(),
 							0.25 * view.getHeight() / view.getScale());
-
-				if(view.overviewContains(tmp)){
+				*/
+				//if(view.overviewContains(tmp)){
 					view.updateTranslation(init_x + x - mouseOffsetX, init_y + y - mouseOffsetY);
-				}
+				//}
 			}
 		}
 
