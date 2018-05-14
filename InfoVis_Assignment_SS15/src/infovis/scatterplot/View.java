@@ -88,7 +88,7 @@ public class View extends JPanel {
 
 						if(getMarkerRectangle().contains(rect))
 							model.getList().get(e).setColor(Color.RED);
-						
+
 						g2D.setColor(model.getList().get(e).getColor());
 						g2D.draw(rect);
 					}
