@@ -1,9 +1,8 @@
 package infovis.scatterplot;
 
 import infovis.debug.Debug;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+
+import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
 import javax.swing.JPanel;
@@ -18,7 +17,8 @@ public class View extends JPanel {
 		 
 		@Override
 		public void paint(Graphics g) {
-			Graphics2D g2D = (Graphics2D)g;
+
+		 	Graphics2D g2D = (Graphics2D)g;
 
 
 
@@ -39,20 +39,27 @@ public class View extends JPanel {
 			}
 
 			drawRaster(g2D);
+			drawLabels(g2D);
 			System.out.println(model.getDim());
 
 		}
 		public void setModel(Model model) {
 			this.model = model;
 		}
-
 		public void drawRaster(Graphics2D g2D){
 		 	for(int i = 0; i < model.getDim(); i++){
 				for(int j = 0; j < model.getDim(); j++){
-					Rectangle2D rect = new Rectangle2D.Double((i+0.2)*getHeight()*0.95/model.getDim(),(j+0.2)*getHeight()*0.95/model.getDim(),getHeight()*0.95/model.getDim()-2,getHeight()*0.95/model.getDim()-2);
+					Rectangle2D rect = new Rectangle2D.Double((i+2)*getHeight()*0.95/model.getDim(),(j+0.4)*getHeight()*0.95/model.getDim(),getHeight()*0.95/model.getDim()-2,getHeight()*0.95/model.getDim()-2);
 						g2D.setColor(Color.DARK_GRAY);
 						g2D.draw(rect);
 				}
+			}
+		}
+		public void drawLabels(Graphics2D g2D){
+			g2D.setFont(new Font("TimesRoman", Font.PLAIN, 9));
+			for(int i = 0; i < model.getLabels().size(); i++) {
+				g2D.drawString(model.getLabels().get(i), (int)((0 + 0.4) * getHeight() * 0.95 / model.getDim()), (int) ((i + 1) * getHeight() * 0.95 / model.getDim()));
+				g2D.drawString(model.getLabels().get(i), (int)((i + 2) * getHeight() * 0.95 / model.getDim()), (int) ((0 + 0.3) * getHeight() * 0.95 / model.getDim()));
 			}
 		}
 }
