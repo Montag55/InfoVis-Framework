@@ -49,7 +49,7 @@ public class View extends JPanel {
 		public void drawRaster(Graphics2D g2D){
 		 	for(int i = 0; i < model.getDim(); i++){
 				for(int j = 0; j < model.getDim(); j++){
-					Rectangle2D rect = new Rectangle2D.Double((i+0.2)*getHeight()/model.getDim(),(j+0.2)*getHeight()/model.getDim(),getHeight()/model.getDim()-2,getHeight()/model.getDim()-2);
+					Rectangle2D rect = new Rectangle2D.Double((i+0.2)*getHeight()*0.95/model.getDim(),(j+0.2)*getHeight()*0.95/model.getDim(),getHeight()*0.95/model.getDim()-2,getHeight()*0.95/model.getDim()-2);
 						g2D.setColor(Color.DARK_GRAY);
 						g2D.draw(rect);
 				}
