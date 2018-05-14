@@ -21,6 +21,9 @@ public class View extends JPanel {
 
 		 	Graphics2D g2D = (Graphics2D)g;
 
+			g2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
+			g2D.clearRect(0, 0, getWidth(), getHeight());
+
 			for (String l : model.getLabels()) {
 				Debug.print(l);
 				Debug.print(",  ");
@@ -39,6 +42,9 @@ public class View extends JPanel {
 			drawRaster(g2D);
 			drawLabels(g2D);
 			drawData(g2D);
+			g2D.setColor(Color.BLACK);
+			g2D.draw(getMarkerRectangle());
+
 		}
 		public void setModel(Model model) {
 			this.model = model;
@@ -47,8 +53,8 @@ public class View extends JPanel {
 		 	for(int i = 0; i < model.getDim(); i++){
 				for(int j = 0; j < model.getDim(); j++){
 					Rectangle2D rect = new Rectangle2D.Double((i+2)*getHeight()*0.95/model.getDim(),(j+0.4)*getHeight()*0.95/model.getDim(),getHeight()*0.95/model.getDim()-2,getHeight()*0.95/model.getDim()-2);
-						g2D.setColor(Color.DARK_GRAY);
-						g2D.draw(rect);
+					g2D.setColor(Color.DARK_GRAY);
+					g2D.draw(rect);
 				}
 			}
 		}
@@ -79,7 +85,11 @@ public class View extends JPanel {
 						double val_2_off = (max_2 - model.getList().get(e).getValue(j))/(max_2 - min_2);
 
 						Rectangle2D rect = new Rectangle2D.Double(x + (box_size - 3) * val_1_off, y + (box_size - 3) * val_2_off, 3, 3);
-						g2D.setColor(Color.DARK_GRAY);
+
+						if(getMarkerRectangle().contains(rect))
+							model.getList().get(e).setColor(Color.RED);
+						
+						g2D.setColor(model.getList().get(e).getColor());
 						g2D.draw(rect);
 					}
 				}
