@@ -8,6 +8,6 @@ import infovis.diagram.elements.Vertex;
 public interface Layout {
 
 	public void setMouseCoords(int x, int y, View view);
-	public Model transform(Model model, View view);
+	public void transform(Model model, View view);
 	
 }

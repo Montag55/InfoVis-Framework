@@ -17,6 +17,7 @@ import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Vector;
 
 public class MouseController implements MouseListener,MouseMotionListener {
 	 private Model model;
@@ -99,16 +100,17 @@ public class MouseController implements MouseListener,MouseMotionListener {
 			drawingEdge = new DrawingEdge((Vertex)getElementContainingPosition(x/scale,y/scale));
 			model.addElement(drawingEdge);
 		} else if (fisheyeMode){
-			/*
-			 * do handle interactions in fisheye mode
-			 */
-			view.repaint();
+
+		   view.getFisheye().setMouseX(e.getX());
+		   view.getFisheye().setMouseY(e.getY());
+		   selectedElement = getElementContainingPosition(x,y);
+		   mouseOffsetX = x - selectedElement.getX() ;
+		   mouseOffsetY = y - selectedElement.getY() ;
+		   view.repaint();
+
 		} else {
 			
 			selectedElement = getElementContainingPosition(x/scale,y/scale);
-			/*
-			 * calculate offset
-			 */
 			mouseOffsetX = x - selectedElement.getX() * scale ;
 			mouseOffsetY = y - selectedElement.getY() * scale ;	
 		}
@@ -177,25 +179,14 @@ public class MouseController implements MouseListener,MouseMotionListener {
 			init_x = view.getTranslateX();
 			init_y = view.getTranslateY();
 		} else{
-			if(view.markerContains(x, y)){
-				/*
-				Rectangle2D tmp = new Rectangle2D.Double();
-				tmp.setRect(view.getWidth() * 0.75 + init_x + x - mouseOffsetX,
-							init_y + y - mouseOffsetY,
-							0.25 * view.getWidth() / view.getScale(),
-							0.25 * view.getHeight() / view.getScale());
-				*/
-				//if(view.overviewContains(tmp)){
-					view.updateTranslation(init_x + x - mouseOffsetX, init_y + y - mouseOffsetY);
-				//}
-			}
+			if(view.markerContains(x, y))
+				view.updateTranslation(init_x + x - mouseOffsetX, init_y + y - mouseOffsetY);
 		}
 
 		if (fisheyeMode){
-			/*
-			 * handle fisheye mode interactions
-			 */
-			view.repaint();
+			view.getFisheye().setMouseX(e.getX());
+			view.getFisheye().setMouseY(e.getY());
+			selectedElement.updatePosition((e.getX()-mouseOffsetX), (e.getY()-mouseOffsetY));
 		} else if (edgeDrawMode){
 			drawingEdge.setX(e.getX());
 			drawingEdge.setY(e.getY());
@@ -206,6 +197,11 @@ public class MouseController implements MouseListener,MouseMotionListener {
 		view.repaint();
 	}
 	public void mouseMoved(MouseEvent e) {
+
+		view.getFisheye().setMouseX(e.getX());
+		view.getFisheye().setMouseY(e.getY());
+
+		view.repaint();
 	}
 	public boolean isDrawingEdges() {
 		return edgeDrawMode;
@@ -216,16 +212,16 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	public void setFisheyeMode(boolean b) {
 		fisheyeMode = b;
 		if (b){
-			Debug.p("new Fisheye Layout");
-			/*
-			 * handle fish eye initial call
-			 */
+			//Debug.p("new Fisheye Layout");
+			view.setModel(model);
 			view.repaint();
 		} else {
-			Debug.p("new Normal Layout");
+			//Debug.p("new Normal Layout");
 			view.setModel(model);
 			view.repaint();
 		}
+
+		view.set_fisheyemode(fisheyeMode);
 	}
 	
 	/*
@@ -242,6 +238,7 @@ public class MouseController implements MouseListener,MouseMotionListener {
 		}
 		return currentElement;
 	}
+
 	
     
 }

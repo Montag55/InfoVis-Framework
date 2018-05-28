@@ -1,12 +1,15 @@
 package infovis.diagram;
 
 import infovis.diagram.elements.Element;
+import infovis.diagram.elements.Vertex;
+import infovis.diagram.layout.Fisheye;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.geom.AffineTransform;
+import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.util.Iterator;
 
@@ -22,6 +25,8 @@ public class View extends JPanel{
 	private double translateY = 0;
 	private Rectangle2D marker = new Rectangle2D.Double();
 	private Rectangle2D overviewRect = new Rectangle2D.Double();
+	private boolean fisheyemode = false;
+	private Fisheye fisheye = new Fisheye();
 
 	public Model getModel() {
 		return model;
@@ -35,18 +40,25 @@ public class View extends JPanel{
 	public void setColor(Color color) {
 		this.color = color;
 	}
+	public void set_fisheyemode(boolean b){ this.fisheyemode = b; }
+	public boolean get_fisheyemode(){ return this.fisheyemode; };
+	public Fisheye getFisheye() { return fisheye; }
 
-	
+
 	public void paint(Graphics g) {
 
 		Graphics2D g2D = (Graphics2D) g;
 		g2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
 		g2D.clearRect(0, 0, getWidth(), getHeight());
 
-		g2D.translate(-getTranslateX()*getScale()*4, -getTranslateY()*getScale()*4);
-		paintDiagram(g2D, getScale());
-		g2D.translate(getTranslateX()*getScale()*4, getTranslateY()*getScale()*4);
-		paintOverview(g2D);
+		if(get_fisheyemode())
+			draw_fisheye(g2D);
+		else {
+			g2D.translate(-getTranslateX() * getScale() * 4, -getTranslateY() * getScale() * 4);
+			paintDiagram(g2D, getScale());
+			g2D.translate(getTranslateX() * getScale() * 4, getTranslateY() * getScale() * 4);
+			paintOverview(g2D);
+		}
 	}
 
 	private void paintDiagram(Graphics2D g2D, double scale){
@@ -122,6 +134,25 @@ public class View extends JPanel{
 
 	public boolean overviewContains(Rectangle2D rect){
 		return this.overviewRect.contains(rect);
+	}
+
+	public void draw_fisheye(Graphics2D g2D){
+
+		fisheye.transform(model, this);
+
+		for (Vertex element: model.getVertices()) {
+
+			double sG = fisheye.ff2( element, this, 5);
+			element.setHeight(element.getHeight()*sG);
+			element.setWidth(element.getWidth()*sG);
+			element.paint(g2D);
+			element.setHeight(element.getHeight()/sG);
+			element.setWidth(element.getWidth()/sG);
+
+		}
+
+		fisheye.inv_transform(model);
+
 	}
 }
  
