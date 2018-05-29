@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -32,7 +33,8 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	 private boolean fisheyeMode;
 	 boolean grabbermaber=false;
 	 private GroupingRectangle groupRectangle;
-	/*
+
+	 /*
 	 * Getter And Setter
 	 */
 	public Element getSelectedElement(){
@@ -50,6 +52,7 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	public void setView(View diagramView) {
 		this.view = diagramView;
 	}
+
 	/*
      * Implements MouseListener
      */
@@ -100,16 +103,14 @@ public class MouseController implements MouseListener,MouseMotionListener {
 			drawingEdge = new DrawingEdge((Vertex)getElementContainingPosition(x/scale,y/scale));
 			model.addElement(drawingEdge);
 		} else if (fisheyeMode){
-
 		   view.getFisheye().setMouseX(e.getX());
 		   view.getFisheye().setMouseY(e.getY());
-		   selectedElement = getElementContainingPosition(x,y);
-		   mouseOffsetX = x - selectedElement.getX() ;
-		   mouseOffsetY = y - selectedElement.getY() ;
+		   selectedElement = getElementContainingPosition_copy(x,y);
+		   mouseOffsetX = x - selectedElement.getX();
+		   mouseOffsetY = y - selectedElement.getY();
 		   view.repaint();
 
 		} else {
-			
 			selectedElement = getElementContainingPosition(x/scale,y/scale);
 			mouseOffsetX = x - selectedElement.getX() * scale ;
 			mouseOffsetY = y - selectedElement.getY() * scale ;	
@@ -230,11 +231,32 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	private Element getElementContainingPosition(double x,double y){
 		x += view.getTranslateX()*4;
 		y += view.getTranslateY()*4;
+
 		Element currentElement = new None();
 		Iterator<Element> iter = getModel().iterator();
+
 		while (iter.hasNext()) {
 		  Element element =  iter.next();
-		  if (element.contains(x, y)) currentElement = element;  
+
+		  if (element.contains(x, y)){
+		  	currentElement = element;
+		  }
+		}
+
+		return currentElement;
+	}
+
+	private Element getElementContainingPosition_copy(double x,double y){
+		x += view.getTranslateX();
+		y += view.getTranslateY();
+
+		Element currentElement = new None();
+		Iterator<Vertex> iter = getModel().iteratorVertices();
+		for (Vertex element_copy: getModel().getVertices_copy()) {
+			Element element =  iter.next();
+			if (element_copy.contains(x, y)){
+				currentElement = element;
+			}
 		}
 		return currentElement;
 	}

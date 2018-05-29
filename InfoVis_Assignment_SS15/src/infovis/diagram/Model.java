@@ -13,6 +13,7 @@ public class Model {
 	private static int idCounter = 0;
 	private List<Element> elements = new ArrayList<Element>();
 	private List<Vertex>  vertices  = new ArrayList<Vertex>();
+	private List<Vertex>  vertices_copy  = new ArrayList<Vertex>();
 	private List<Edge>    edges = new ArrayList<Edge>();
     
    
@@ -39,6 +40,7 @@ public class Model {
 	public Iterator iteratorVertices(){
 		return vertices.iterator();
 	}
+
 	public Iterator iteratorEdges(){
 		return edges.iterator();
 	}
@@ -85,6 +87,16 @@ public class Model {
     	addVertex(new Vertex(400,490));
     	addVertex(new Vertex(700,90));
     	addVertex(new Vertex(700,490));
+
+		vertices_copy.add(new Vertex(70,90));
+		vertices_copy.add(new Vertex(270,290));
+		vertices_copy.add(new Vertex(270,230));
+		vertices_copy.add(new Vertex(210,290));
+		vertices_copy.add(new Vertex(400,90));
+		vertices_copy.add(new Vertex(400,490));
+		vertices_copy.add(new Vertex(700,90));
+		vertices_copy.add(new Vertex(700,490));
+
 	}
 	public boolean isEmpty(){
 		return elements.isEmpty();
@@ -96,6 +108,10 @@ public class Model {
 
 	public List<Vertex> getVertices() {
 		return vertices;
+	}
+
+	public List<Vertex> getVertices_copy() {
+		return vertices_copy;
 	}
 	
 	public List<Element> getElements() {

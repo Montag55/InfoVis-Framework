@@ -37,7 +37,7 @@ public class Vertex implements Element {
 		this.id = Model.generateNewID();
 	}
 	public Vertex(double x, double y){
-		//this.shape = new Rectangle2D.Double(x,y,width,height);
+		//this.shape = new Rectangle2D.Double(x,y,STD_WIDTH,STD_HEIGHT);
 		this.shape =  new Ellipse2D.Double(x,y,STD_WIDTH,STD_HEIGHT);
 		this.id = Model.generateNewID();
 	}
