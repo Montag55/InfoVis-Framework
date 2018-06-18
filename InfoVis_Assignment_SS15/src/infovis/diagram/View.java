@@ -79,13 +79,18 @@ public class View extends JPanel{
 
 			g2D.translate(getWidth()*0.75, 0);
 			g2D.scale(0.25, 0.25);
+
 			paintDiagram(g2D, 1);
 			//draw_fisheye(g2D);
+
+			Rectangle2D frame_rect = new Rectangle2D.Double(0,0, getWidth(), getHeight());
+			g2D.setColor(Color.BLACK);
+			g2D.draw(frame_rect);
+
 			g2D.scale(4, 4);
 			g2D.translate(-getWidth()*0.75, 0);
 
-			updateMarker(getWidth() * 0.75 + getTranslateX(), getTranslateY());
-			g2D.draw(marker);
+
 		}
 		else {
 			updateOverview(getWidth() * 0.75, 0);

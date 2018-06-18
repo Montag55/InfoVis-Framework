@@ -102,7 +102,7 @@ public class MouseController implements MouseListener,MouseMotionListener {
 	   if (edgeDrawMode){
 			drawingEdge = new DrawingEdge((Vertex)getElementContainingPosition(x/scale,y/scale));
 			model.addElement(drawingEdge);
-		} else if (fisheyeMode){
+	   } else if (fisheyeMode){
 		   view.getFisheye().setMouseX(e.getX());
 		   view.getFisheye().setMouseY(e.getY());
 		   selectedElement = getElementContainingPosition_copy(x,y);
@@ -110,11 +110,12 @@ public class MouseController implements MouseListener,MouseMotionListener {
 		   mouseOffsetY = y - selectedElement.getY();
 		   view.repaint();
 
-		} else {
-			selectedElement = getElementContainingPosition(x/scale,y/scale);
-			mouseOffsetX = x - selectedElement.getX() * scale ;
-			mouseOffsetY = y - selectedElement.getY() * scale ;	
-		}
+	   } else {
+			selectedElement = getElementContainingPosition(x / scale, y / scale);
+			mouseOffsetX = x - selectedElement.getX() * scale;
+			mouseOffsetY = y - selectedElement.getY() * scale;
+
+	   }
 		
 	}
 	public void mouseReleased(MouseEvent arg0){
@@ -175,12 +176,14 @@ public class MouseController implements MouseListener,MouseMotionListener {
 		double scale = view.getScale();
 
 		// Aufgabe 1.2
-		if(grabbermaber == true){
+		if(grabbermaber == true ){
+
 			grabbermaber = false;
 			init_x = view.getTranslateX();
 			init_y = view.getTranslateY();
-		} else{
-			if(view.markerContains(x, y))
+
+		} else {
+			if(view.markerContains(x, y) && (selectedElement.getID() == 0))
 				view.updateTranslation(init_x + x - mouseOffsetX, init_y + y - mouseOffsetY);
 		}
 
